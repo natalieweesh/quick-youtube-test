@@ -5,7 +5,6 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="Quick-youtube-test : ">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <title>Quick-youtube-test</title>
@@ -45,46 +44,13 @@
 
 		<div class="video-overlay">
 			<div class="video-wrapper">
-				<div id="player"></div>
+				<iframe src="http://player.vimeo.com/video/113742830" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</div>
 		</div>
-					<a href="#" class="show-tiny play-video"><img src="img/video_thumbnail.png" alt="Play Video"></a>
+		<a href="#" class="show-tiny play-video"><img src="img/video_thumbnail.png" alt="Play Video"></a>
 		<script>
 
 			//video stuff
-			var tag = document.createElement('script');
-			tag.src = "https://www.youtube.com/iframe_api";
-			var firstScriptTag = document.getElementsByTagName('script')[0];
-			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-			var player;
-			function onYouTubeIframeAPIReady() {
-				player = new YT.Player('player', {
-					height: '349',
-					width: '560',
-					videoId: 'J9fvFCBVp6c',
-					events: {
-						'onReady': onPlayerReady,
-						'onStateChange': onPlayerStateChange	
-					}	
-				});	
-			}
-
-			function onPlayerReady(event) {
-				//event.target.playVideo();	
-			}
-
-			var done = false;
-			function onPlayerStateChange(event) {
-				if (event.data == YT.PlayerState.PLAYING && !done) {
-					setTimeout(stopVideo, 6000);
-					done = true;	
-				}	
-			}
-			function stopVideo() {
-				player.stopVideo();	
-			}
-
 			function verticallyCenterVideo() {
 				if ($(window).innerHeight() > $('.video-wrapper iframe').height()) {
 					diff = ($(window).innerHeight() - $('.video-wrapper iframe').height()) / 2;
@@ -98,17 +64,10 @@
 				$('.play-video').on('click', function(){
 					$('.video-overlay').addClass('visible');
 					verticallyCenterVideo();
-					player.playVideo();	
-					var playerElement = $('#player');
-					var requestFullScreen = playerElement.requestFullScreen || playerElement.mozRequestFullScreen || playerElement.webkitRequestFullScreen;
-					if (requestFullScreen) {
-						requestFullScreen.bind(playerElement)();
-					}
-				});	
+				});
 
 				$('.video-overlay').on('click', function(){
 					$('.video-overlay').removeClass('visible');	
-					player.stopVideo();
 				});
 
 				$(window).resize(function(){
