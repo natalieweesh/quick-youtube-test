@@ -10,12 +10,6 @@
     <title>Quick-youtube-test</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<style>
-			body {
-				cursor: pointer;	
-			}
-			#hamburger {
-				cursor: pointer;	
-			}
 			.video-overlay {
 				display: none;
 				background: rgba(0,0,0,0.8);
@@ -93,8 +87,7 @@
 				$(window).resize(function(){
 					verticallyCenterVideo();	
 				});
-				$('body').on('click', function(e){
-					alert('body clicked');
+				$('body').on('click touchstart', function(e){
 					if ($(e.target).hasClass('dropdown') || $(e.target).parents('.dropdown').size() >= 1 || e.target.id === 'hamburger') {
 						if (e.target.id === 'hamburger') {
 							$('.dropdown').toggleClass('opened');
