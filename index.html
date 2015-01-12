@@ -101,11 +101,10 @@
 						}	
 					}	
 				});
-				alert('is video supported? ' + supports_video());
+				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+					alert('this is a mobile device!');
+				}
 			});
-			function supports_video() {
-				  return !!document.createElement('video').canPlayType;
-			}
 
 		</script>
   </body>
