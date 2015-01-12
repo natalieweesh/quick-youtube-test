@@ -101,7 +101,11 @@
 						}	
 					}	
 				});
+				alert('is video supported? ' + supports_video());
 			});
+			function supports_video() {
+				  return !!document.createElement('video').canPlayType;
+			}
 
 		</script>
   </body>
