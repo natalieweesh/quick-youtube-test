@@ -91,13 +91,11 @@
 					if ($(e.target).hasClass('dropdown') || $(e.target).parents('.dropdown').size() >= 1 || e.target.id === 'hamburger') {
 						if (e.target.id === 'hamburger') {
 							$('.dropdown').toggleClass('opened');
-							alert('dropdown toggled');	
 						}
 						
 					} else {
 						if ($('.dropdown').hasClass('opened')) {
 							$('.dropdown').removeClass('opened');
-							alert('close dropdown');
 						}	
 					}	
 				});
